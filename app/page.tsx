@@ -155,40 +155,38 @@ const fadeUp = {
             </span>
             —because AI accelerates research while human expertise drives every decision.
           </motion.p>
-{/* CTA group — same styling, fixed layout */}
-{/* HERO CTAs — mobile full-width, desktop aligned; no styling changes to your ShinyButton look */}
 <motion.div
   {...fadeUp}
-  transition={{ ...fadeUp.transition, delay: 0.15 }}
-  className="mx-auto mt-8 w-full max-w-3xl grid grid-cols-1 gap-4 sm:grid-cols-2"
+  transition={{ ...fadeUp.transition, delay: 0.3 }}
+  className="flex w-full max-w-xl flex-col sm:flex-row items-center gap-4 mt-4"
 >
-  {/* Primary CTA (keeps your ShinyButton shine/hover) */}
-  <button
-    onClick={() =>
-      document.getElementById("book")?.scrollIntoView({ behavior: "smooth" })
-    }
-    className="col-span-1"
-  >
-    <ShinyButton className="h-14 sm:h-16 w-full justify-center">
+  <div className="relative w-full sm:w-auto">
+    <div className="absolute inset-0 blur-xl bg-primary/30 rounded-full animate-pulse" />
+    <ShinyButton
+      onClick={() =>
+        window.open(
+          "https://calendly.com/bryan-r-engle/15-minute-discovery-call-b2b-ux-audit",
+          "_blank"
+        )
+      }
+      className="w-full sm:w-auto justify-center relative px-6 py-3 text-base font-bold shadow-lg shadow-primary/20 bg-primary text-black border-primary/50"
+    >
+      <Zap className="h-4 w-4 mr-2 text-black" />
       Book 15-min discovery call
-      <ArrowRight className="ml-2 h-4 w-4" />
+      <ArrowRight className="h-4 w-4 ml-2 text-black" />
     </ShinyButton>
-  </button>
+  </div>
 
-  {/* Secondary CTA (same visual you had, just fixed sizing) */}
-  <button
-    onClick={() =>
-      document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })
-    }
-    className="col-span-1 inline-flex h-14 sm:h-16 w-full items-center justify-center rounded-2xl
-               border border-yellow-400/40 bg-white/5 px-6 sm:px-8 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]
-               ring-1 ring-black/10 backdrop-blur transition-colors hover:bg-white/7.5"
+  <a
+    href="https://buy.stripe.com/cNibJ3a1jcYzbqtbd7gbm01"
+    target="_blank"
+    rel="noreferrer"
+    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-xl px-8 py-4 text-base font-medium hover:bg-primary/10 hover:border-primary/40 transition-colors"
   >
-    <span className="font-semibold">Buy now – €3,200</span>
-    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-  </button>
+    Buy now - €3,200
+    <ArrowRight className="h-5 w-5 text-primary" />
+  </a>
 </motion.div>
-
 
 
           {/* Hero stats */}
