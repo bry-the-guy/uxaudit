@@ -156,36 +156,36 @@ const fadeUp = {
             —because AI accelerates research while human expertise drives every decision.
           </motion.p>
 {/* CTA group — same styling, fixed layout */}
+{/* HERO CTAs — mobile full-width, desktop aligned; no styling changes to your ShinyButton look */}
 <motion.div
   {...fadeUp}
   transition={{ ...fadeUp.transition, delay: 0.15 }}
-  className="flex w-full max-w-2xl flex-col gap-4 sm:flex-row sm:justify-center"
+  className="mx-auto mt-8 w-full max-w-3xl grid grid-cols-1 gap-4 sm:grid-cols-2"
 >
-  {/* Primary CTA */}
+  {/* Primary CTA (keeps your ShinyButton shine/hover) */}
   <button
     onClick={() =>
       document.getElementById("book")?.scrollIntoView({ behavior: "smooth" })
     }
-    className="w-full sm:w-auto"
+    className="col-span-1"
   >
-    <ShinyButton className="w-full sm:w-auto justify-center">
+    <ShinyButton className="h-14 sm:h-16 w-full justify-center">
       Book 15-min discovery call
       <ArrowRight className="ml-2 h-4 w-4" />
     </ShinyButton>
   </button>
 
-  {/* Secondary CTA */}
+  {/* Secondary CTA (same visual you had, just fixed sizing) */}
   <button
     onClick={() =>
       document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })
     }
-    className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl
-               border border-yellow-400/40 bg-white/5 px-6 py-3 text-base font-semibold text-white
-               shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] ring-1 ring-black/10 backdrop-blur
-               transition hover:bg-white/7.5"
+    className="col-span-1 inline-flex h-14 sm:h-16 w-full items-center justify-center rounded-2xl
+               border border-yellow-400/40 bg-white/5 px-6 sm:px-8 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]
+               ring-1 ring-black/10 backdrop-blur transition-colors hover:bg-white/7.5"
   >
-    Buy now – €3,200
-    <ArrowRight className="ml-2 h-4 w-4" />
+    <span className="font-semibold">Buy now – €3,200</span>
+    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
   </button>
 </motion.div>
 
