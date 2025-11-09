@@ -511,14 +511,14 @@ const fadeUp = {
               
               <div className="space-y-4 flex-1">
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                  Senior Product Designer with 8+ years building enterprise tools and B2B SaaS products. I've designed 
-                  products serving millions at United Airlines, led AI product development at Intelligent Medical Objects, 
-                  and created design systems used by 1,000+ users.
+I’m a Senior UX Designer with over eight years of experience turning complex systems into simple, intuitive tools.
+At United Airlines, I spent more than three years designing for both sides of the operation—consumer experiences used by millions of travelers and internal platforms that help thousands of employees in Tech Ops and Corporate Safety work more efficiently and safely. I’ve also led AI-driven product design at Intelligent Medical Objects and built design systems that scaled across enterprise teams.
+
+
                 </p>
                 
                 <p className="text-muted-foreground leading-relaxed">
-                  I speak your language: PLG, enterprise sales, RBAC, time to value, seat expansion, admin experience. 
-                  I've been in your shoes.
+My strength lies in translating intricate workflows and technical constraints into clear, usable experiences that make sense to the people who rely on them every day.
                 </p>
               </div>
             </div>
