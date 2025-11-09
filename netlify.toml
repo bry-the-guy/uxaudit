@@ -1,12 +1,14 @@
-# netlify.toml — valid TOML, no { } anywhere
+# Valid TOML (no braces). Lets Next’s official plugin handle routing/assets.
 
 [build]
   command = "npm run build"
-  # Do NOT set "publish" for Next.js when using the Netlify Next plugin.
 
 [build.environment]
-  # Pick ONE Node version strategy and keep it consistent with your repo/Netlify UI.
   NODE_VERSION = "18"
+  # Optional: temporarily silence ESLint in CI while stabilizing
+  # NEXT_DISABLE_ESLINT = "true"
+  # Optional: more verbose logs
+  # NETLIFY_BUILD_DEBUG = "true"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
