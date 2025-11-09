@@ -1,12 +1,12 @@
+# netlify.toml — valid TOML, no { } anywhere
+
 [build]
   command = "npm run build"
-  # DO NOT set "publish" for Next.js with the Netlify plugin
+  # Do NOT set "publish" for Next.js when using the Netlify Next plugin.
+
+[build.environment]
+  # Pick ONE Node version strategy and keep it consistent with your repo/Netlify UI.
+  NODE_VERSION = "18"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
-
-[build]
-  command = "npm run build"
-
-[build.environment]
-  NODE_VERSION = "18"

@@ -2,14 +2,18 @@
   "name": "bryan-engle-landing",
   "version": "0.1.0",
   "private": true,
-  "engines": { "node": "18.x" }
+
+  "engines": {
+    "node": "18.x"
+  },
+
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
-  
+
   "dependencies": {
     "@hugeicons/react": "^1.1.1",
     "class-variance-authority": "^0.7.1",
@@ -23,6 +27,7 @@
     "rough-notation": "^0.5.1",
     "tailwind-merge": "^3.3.1"
   },
+
   "devDependencies": {
     "@netlify/plugin-nextjs": "^5.14.5",
     "@types/node": "^20",
