@@ -13,6 +13,7 @@ import { TextAnimate } from "@/components/ui/text-animate"
 import { ShineBorder } from "@/components/ui/shine-border"
 import { ShinyButton } from "@/components/ui/shiny-button"
 import Particles from "@/components/ui/particles"
+import { Button } from "@/components/ui/button"
 
 
 // Particles background
@@ -98,15 +99,15 @@ function SectionContainer(props: React.PropsWithChildren<{ id?: string; classNam
 export default function Page() {
   const prefersReducedMotion = useReducedMotion()
 
-const fadeUp = {
-  initial: { opacity: 0, y: 12 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.6 },
-  transition: {
-    duration: 0.6,
-    ease: [0.16, 1, 0.3, 1] as [number, number, number, number], // ≈ easeOut
-  },
-} as const;
+  const fadeUp = useMemo(
+    () => ({
+      initial: { opacity: 0, y: prefersReducedMotion ? 0 : 20 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, amount: 0.3 },
+      transition: { duration: prefersReducedMotion ? 0 : 0.6, ease: "easeOut" },
+    }),
+    [prefersReducedMotion]
+  )
 
   useEffect(() => {
     document.documentElement.style.setProperty("scrollBehavior", "smooth")
@@ -125,9 +126,18 @@ const fadeUp = {
           >
             <Sparkles className="h-4 w-4 text-primary" />
             <span className="text-xs sm:text-sm font-medium text-primary">
-              Enterprise UX Audits for European B2B SaaS
+              Amsterdam-Based • Enterprise UX for European B2B SaaS
             </span>
           </motion.div>
+
+          {/* Problem Statement */}
+          <motion.p
+            {...fadeUp}
+            transition={{ ...fadeUp.transition, delay: 0.05 }}
+            className="max-w-2xl text-muted-foreground text-balance text-base sm:text-lg leading-relaxed px-4"
+          >
+            Your product works. But enterprise deals stall because buyers cite "admin complexity" or "security concerns"—and you're not sure which UX issues to fix first.
+          </motion.p>
 
           {/* Main headline */}
           <motion.h1
@@ -149,11 +159,11 @@ const fadeUp = {
             transition={{ ...fadeUp.transition, delay: 0.2 }}
             className="max-w-2xl text-muted-foreground text-balance text-lg sm:text-xl leading-relaxed"
           >
-            European agencies take 2-4 weeks and charge €8k+ for a B2B SaaS UX audit.{" "}
+            European agencies take 2-4 weeks and charge €8k+ to tell you what's broken.{" "}
             <span className="text-foreground font-semibold">
-              I deliver the same strategic depth in 3 days for €3,200
+              I deliver 20-25 prioritised fixes you can ship this sprint—in 72 hours for €3,200
             </span>
-            —because AI accelerates research while human expertise drives every decision.
+            —because I use AI to accelerate research while applying 8 years of enterprise UX patterns that actually close deals.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -184,6 +194,21 @@ const fadeUp = {
               </a>
           </motion.div>
 
+          {/* Urgency indicator */}
+          <motion.p
+            {...fadeUp}
+            transition={{ ...fadeUp.transition, delay: 0.35 }}
+            className="text-sm text-muted-foreground mt-4"
+          >
+            <span className="inline-flex items-center gap-1.5">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              Limited to 4 audits per month to maintain quality
+            </span>
+          </motion.p>
+
           {/* Hero stats */}
           <motion.div
             {...fadeUp}
@@ -199,6 +224,25 @@ const fadeUp = {
             </GlassCard>
           </motion.div>
         </div>
+      </SectionContainer>
+
+      {/* WHO THIS IS FOR */}
+      <SectionContainer className="py-12 sm:py-16">
+        <motion.div {...fadeUp}>
+          <GlassCard className="p-8 sm:p-10">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
+              Built for Series A-C B2B SaaS Companies Who:
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+              <CheckItem text="Recently raised €5-20M and need to move upmarket" />
+              <CheckItem text="Keep hearing 'admin complexity' in lost deal feedback" />
+              <CheckItem text="Have 20-100 employees with limited design resources" />
+              <CheckItem text="Are targeting enterprise customers (€50k+ deals)" />
+              <CheckItem text="Need to ship UX improvements this quarter, not next year" />
+              <CheckItem text="Lost deals because buyers cited 'security concerns' or 'not enterprise-ready'" />
+            </div>
+          </GlassCard>
+        </motion.div>
       </SectionContainer>
 
       {/* TRUST MARQUEE - Full Width */}
@@ -259,15 +303,15 @@ const fadeUp = {
             {...fadeUp}
             className="mb-4 text-3xl sm:text-4xl font-bold"
           >
-            Why This{" "}
-            <span className="text-primary">Actually Works</span>
+            Why Enterprise Teams{" "}
+            <span className="text-primary">Choose This Approach</span>
           </motion.h2>
           <motion.p 
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 0.1 }}
             className="text-muted-foreground max-w-2xl mx-auto text-lg"
           >
-            Built for European B2B SaaS scale-ups and Series A-C companies that need expert UX insights fast—without the agency price tag or timeline.
+            Designed for European B2B SaaS companies at Series A-C stage who require senior-level UX expertise without agency timelines or overhead.
           </motion.p>
         </div>
 
@@ -282,8 +326,7 @@ const fadeUp = {
                 <div className="flex-1">
                   <h4 className="text-xl font-semibold mb-2">Enterprise Experience Meets Startup Speed</h4>
                   <p className="text-muted-foreground leading-relaxed">
-                    I've designed products serving millions at United Airlines and built B2B SaaS platforms at Intelligent Medical Objects.
-                    I combine enterprise standards with startup pace to ship pragmatic improvements quickly.
+                    I've designed enterprise tools at United Airlines serving millions of passengers daily, and led B2B SaaS development at Intelligent Medical Objects—where I learned how to navigate complex multi-role experiences, admin panels, and security requirements that enterprise buyers actually evaluate during procurement.
                   </p>
                 </div>
               </div>
@@ -340,6 +383,64 @@ const fadeUp = {
         </div>
       </SectionContainer>
 
+      {/* ENTERPRISE OBJECTIONS */}
+      <SectionContainer className="py-16 sm:py-24 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent">
+        <div className="mb-12 text-center">
+          <motion.h2 
+            {...fadeUp}
+            className="mb-4 text-3xl sm:text-4xl font-bold"
+          >
+            Common Enterprise{" "}
+            <span className="text-primary">Objections I Address</span>
+          </motion.h2>
+          <motion.p 
+            {...fadeUp}
+            transition={{ ...fadeUp.transition, delay: 0.1 }}
+            className="text-muted-foreground max-w-2xl mx-auto"
+          >
+            These are the specific concerns European enterprise buyers raise in late-stage deals—and what I look for in every audit.
+          </motion.p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <motion.div {...fadeUp}>
+            <GlassCard className="p-6 h-full">
+              <h4 className="text-lg font-semibold mb-3 text-primary">Admin Setup Complexity</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                The #1 deal killer for Series A products. I identify where admin configuration overwhelms IT teams and recommend streamlined onboarding paths that get teams productive faster.
+              </p>
+            </GlassCard>
+          </motion.div>
+
+          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }}>
+            <GlassCard className="p-6 h-full">
+              <h4 className="text-lg font-semibold mb-3 text-primary">Security & Compliance Visibility</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Enterprise buyers need to see SSO/SCIM indicators, audit logs, and data handling transparency. I audit whether security settings are visible enough to pass procurement review.
+              </p>
+            </GlassCard>
+          </motion.div>
+
+          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.2 }}>
+            <GlassCard className="p-6 h-full">
+              <h4 className="text-lg font-semibold mb-3 text-primary">Multi-Role Permission Confusion</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                When admin, power user, and end-user experiences blur together, enterprise buyers get nervous about governance. I map role clarity and access control patterns.
+              </p>
+            </GlassCard>
+          </motion.div>
+
+          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.3 }}>
+            <GlassCard className="p-6 h-full">
+              <h4 className="text-lg font-semibold mb-3 text-primary">"Not Enterprise-Grade" UI Signals</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Subtle visual and interaction cues that signal either "consumer tool" or "enterprise platform." I identify where your UI undermines enterprise positioning and recommend adjustments.
+              </p>
+            </GlassCard>
+          </motion.div>
+        </div>
+      </SectionContainer>
+
       {/* PRICING */}
       <SectionContainer id="pricing" className="py-16 sm:py-24">
         <div className="mb-12 text-center">
@@ -354,9 +455,16 @@ const fadeUp = {
           <motion.p 
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 0.1 }}
-            className="text-muted-foreground max-w-xl mx-auto"
+            className="text-muted-foreground max-w-xl mx-auto text-lg"
           >
             Fixed scope, fixed price, delivered in 72 hours
+          </motion.p>
+          <motion.p 
+            {...fadeUp}
+            transition={{ ...fadeUp.transition, delay: 0.15 }}
+            className="text-muted-foreground max-w-2xl mx-auto mt-3 text-sm"
+          >
+            €3,200 is 2 days of your engineering team's time—but it prevents 2 weeks of building the wrong things. One closed €50k enterprise deal pays for 15 audits.
           </motion.p>
         </div>
 
@@ -432,6 +540,94 @@ const fadeUp = {
         </div>
       </SectionContainer>
 
+      {/* PROCESS TIMELINE */}
+      <SectionContainer className="py-16 sm:py-24">
+        <div className="mb-12 text-center">
+          <motion.h2 
+            {...fadeUp}
+            className="mb-4 text-3xl sm:text-4xl font-bold"
+          >
+            Your 72-Hour{" "}
+            <span className="text-primary">Audit Timeline</span>
+          </motion.h2>
+          <motion.p 
+            {...fadeUp}
+            transition={{ ...fadeUp.transition, delay: 0.1 }}
+            className="text-muted-foreground max-w-2xl mx-auto"
+          >
+            Here's exactly what happens from purchase to delivery
+          </motion.p>
+        </div>
+
+        <div className="max-w-3xl mx-auto">
+          <div className="space-y-6">
+            <motion.div {...fadeUp}>
+              <GlassCard className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="rounded-xl bg-primary/10 px-4 py-2 ring-1 ring-primary/20 flex-shrink-0">
+                    <span className="text-primary font-bold">Day 0</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold mb-2">Purchase & Intake</h4>
+                    <p className="text-sm text-muted-foreground">
+                      You complete payment → receive intake form (26 questions about your product, goals, and workflows) → we schedule your 90-minute kickoff call within 48 hours.
+                    </p>
+                  </div>
+                </div>
+              </GlassCard>
+            </motion.div>
+
+            <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }}>
+              <GlassCard className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="rounded-xl bg-primary/10 px-4 py-2 ring-1 ring-primary/20 flex-shrink-0">
+                    <span className="text-primary font-bold">Day 1</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold mb-2">Strategic Kickoff Call</h4>
+                    <p className="text-sm text-muted-foreground">
+                      90-minute deep dive into your business goals, user workflows, and enterprise challenges. I come prepared with competitive analysis and strategic questions based on your intake responses.
+                    </p>
+                  </div>
+                </div>
+              </GlassCard>
+            </motion.div>
+
+            <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.2 }}>
+              <GlassCard className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="rounded-xl bg-primary/10 px-4 py-2 ring-1 ring-primary/20 flex-shrink-0">
+                    <span className="text-primary font-bold">Day 2</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold mb-2">Deep Analysis & Documentation</h4>
+                    <p className="text-sm text-muted-foreground">
+                      I audit your product workflows, create annotated Figma file with 20-25 prioritized issues, apply ICE scoring (Impact × Confidence × Ease), and prepare enterprise readiness assessment.
+                    </p>
+                  </div>
+                </div>
+              </GlassCard>
+            </motion.div>
+
+            <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.3 }}>
+              <GlassCard className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="rounded-xl bg-primary/10 px-4 py-2 ring-1 ring-primary/20 flex-shrink-0">
+                    <span className="text-primary font-bold">Day 3</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold mb-2">Executive Readout & Delivery</h4>
+                    <p className="text-sm text-muted-foreground">
+                      1-hour presentation to your leadership team covering top 3 critical issues, quick wins you can ship this sprint, 30-day implementation roadmap, and Q&A. All deliverables (Figma, CSV, A/B test plans) sent immediately after.
+                    </p>
+                  </div>
+                </div>
+              </GlassCard>
+            </motion.div>
+          </div>
+        </div>
+      </SectionContainer>
+
       {/* FAQ */}
       <SectionContainer id="faq" className="py-16 sm:py-24">
         <div className="mb-12 text-center">
@@ -453,27 +649,43 @@ const fadeUp = {
         <div className="max-w-3xl mx-auto space-y-4">
           <FAQItem
             question="How is this different from automated UX tools?"
-            answer="Automated tools flag generic issues. I provide strategic recommendations tailored to your business model, target market, and enterprise ambitions. All findings are validated by 8+ years of B2B product experience."
+            answer="Automated tools flag generic issues. I provide strategic recommendations tailored to your business model, target market, and enterprise ambitions. All findings are validated by 8+ years of B2B product experience at United Airlines and Fortune 500 companies."
+          />
+          <FAQItem
+            question="Do you understand GDPR and European compliance requirements?"
+            answer="Yes. I'm based in Amsterdam and work with European B2B SaaS companies daily. I audit for GDPR-compliant data handling patterns, cookie consent clarity, and privacy policy accessibility. I also evaluate whether your security and compliance signals are visible enough for European enterprise procurement teams."
+          />
+          <FAQItem
+            question="Can you work across European timezones?"
+            answer="Absolutely. Based in Amsterdam (CET), I cover UK, DACH, Nordics, and can accommodate US East Coast teams. Calls typically happen 9am-6pm CET, and I deliver work asynchronously so you wake up to progress."
           />
           <FAQItem
             question="What deliverables do I receive?"
-            answer="Annotated Figma issues (20–25), enterprise readiness notes, priority matrix, CSV roadmap for your PM tool, and a 30-day plan with A/B test ideas."
+            answer="Annotated Figma file (20–25 issues), enterprise readiness assessment, priority matrix with ICE scores, CSV roadmap for your PM tool (Jira/Linear/Asana), 30-day implementation plan, and A/B test recommendations. Everything is designed to ship, not gather dust."
+          />
+          <FAQItem
+            question="Do you sign NDAs?"
+            answer="Yes, I'll sign your NDA or we can use mine. All client work is confidential. I won't share case studies or testimonials without explicit permission, and I can anonymize examples if needed."
+          />
+          <FAQItem
+            question="What if our product UI is in Dutch/German/French?"
+            answer="Not a problem. I evaluate UX patterns, workflows, and information architecture—which transcend language. For copy-specific issues, I'll note them and can work with your team to address localization concerns."
           />
           <FAQItem
             question="Do you help implement the recommendations?"
-            answer="I offer a 1-Week Implementation Sprint (€6,000) where I design the top 5 issues in production-ready Figma with developer handoff specs and Loom walkthroughs."
+            answer="Yes. I offer a 1-Week Implementation Sprint (€6,000) where I design the top 5 issues in production-ready Figma with full responsive breakpoints, developer handoff specs, and Loom walkthroughs."
           />
           <FAQItem
             question="How confident are you in the impact estimates?"
-            answer="Estimates are grounded in benchmarks, competitive analysis, and heuristics. I share conservative and optimistic ranges; most teams see 10–25% lift after top fixes."
+            answer="Impact estimates are grounded in industry benchmarks, competitive analysis, and enterprise UX heuristics. I provide conservative and optimistic ranges. Most B2B SaaS teams see 10–25% improvement in their primary metric after implementing top recommendations."
           />
           <FAQItem
             question="What information do you need from us?"
-            answer="Product URL, a test account with realistic data, your top 3 workflows, primary metric, and 90 minutes for kickoff. I handle the rest."
+            answer="Product URL, test account with realistic data, your top 3 workflows to audit, primary metric to improve, and 90 minutes for kickoff call. I handle all the research, competitive analysis, and documentation."
           />
           <FAQItem
             question="What's your refund policy?"
-            answer="If the audit doesn't provide actionable value that justifies the investment, I'll refund 50% within 7 days of delivery."
+            answer="Zero-risk guarantee: If the audit doesn't identify at least 15 actionable improvements that would unblock your enterprise pipeline, I'll refund 100% within 7 days of delivery. No questions asked."
           />
         </div>
       </SectionContainer>
@@ -498,14 +710,11 @@ const fadeUp = {
               
               <div className="space-y-4 flex-1">
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                  Senior Product Designer with 8+ years building enterprise tools and B2B SaaS products. I've designed 
-                  products serving millions at United Airlines, led AI product development at Intelligent Medical Objects, 
-                  and created design systems used by 1,000+ users.
+                  Senior Product Designer with 8+ years building enterprise tools and B2B SaaS products for Fortune 500 companies. At United Airlines, I designed enterprise web tools serving millions of passengers daily—where I learned how complex systems must balance power-user efficiency with accessibility. At Intelligent Medical Objects, I led AI product development for B2B healthcare SaaS, navigating HIPAA compliance, multi-role permissions, and enterprise procurement requirements.
                 </p>
                 
                 <p className="text-muted-foreground leading-relaxed">
-                  I speak your language: PLG, enterprise sales, RBAC, time to value, seat expansion, admin experience. 
-                  I've been in your shoes.
+                  I've created design systems used by 1,000+ users, reduced task completion time by 40% in operations dashboards, and improved usability by 43% in enterprise risk tools. I speak your language: PLG, enterprise sales, RBAC, time to value, seat expansion, admin experience.
                 </p>
               </div>
             </div>
@@ -523,9 +732,14 @@ const fadeUp = {
               <span className="text-sm text-muted-foreground self-center">Password: beux2025</span>
             </div>
             
-            <p className="text-sm text-muted-foreground pt-2">
-              Based in Amsterdam, serving European B2B SaaS scale-ups and enterprises across EMEA.
-            </p>
+            <div className="pt-4 space-y-2">
+              <p className="text-sm text-muted-foreground">
+                <span className="text-foreground font-semibold">Based in Amsterdam (CET)</span> — I work European business hours for calls and provide support across UK, DACH, Nordics. I can also accommodate US East Coast teams for strategic discussions.
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Serving European B2B SaaS companies and enterprises across EMEA.
+              </p>
+            </div>
           </motion.div>
 
           <motion.div 
