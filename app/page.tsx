@@ -493,12 +493,13 @@ const fadeUp = {
 
       {/* ABOUT */}
 <SectionContainer id="about" className="py-16 sm:py-24">
-  <div className="grid gap-12 md:grid-cols-5">
+  <div className="grid gap-12 md:grid-cols-5 md:items-start">
+    {/* LEFT: Intro */}
     <motion.div {...fadeUp} className="md:col-span-3 space-y-6">
       <h2 className="text-3xl sm:text-4xl font-bold">
         About <span className="text-primary">Bryan Engle</span>
       </h2>
-      
+
       <div className="flex flex-col sm:flex-row gap-6 items-start">
         {/* Profile Photo */}
         <div className="flex-shrink-0">
@@ -508,24 +509,42 @@ const fadeUp = {
             className="w-32 h-32 rounded-2xl object-cover ring-2 ring-primary/30 hover:ring-primary/50 transition-all duration-300"
           />
         </div>
-        
-        <div className="space-y-4 flex-1">
+
+        {/* Copy — tighter + more scannable */}
+        <div className="space-y-4 flex-1 max-w-prose">
           <p className="text-muted-foreground text-lg leading-relaxed">
-            I’m a <strong>Senior UX Designer</strong> who turns complex systems into simple, intuitive experiences. 
-            At <strong>United Airlines</strong>, I spent over three years designing both traveler-facing products and internal 
-            tools used by thousands of employees in Tech Ops and Corporate Safety. 
-            I’ve also led <strong>AI product design</strong> at Intelligent Medical Objects and built 
-            <strong> enterprise design systems</strong> that scale across teams.
+            I’m a <strong>Senior UX Designer</strong> who turns complex systems into simple, intuitive tools.
           </p>
 
+          <ul className="space-y-3">
+            <li className="flex gap-3">
+              <div className="mt-1 h-2 w-2 rounded-full bg-primary/70 flex-shrink-0" />
+              <span className="text-muted-foreground">
+                <strong>United Airlines (3+ years):</strong> designed both traveler-facing products and internal platforms used by thousands in Tech Ops and Corporate Safety.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <div className="mt-1 h-2 w-2 rounded-full bg-primary/70 flex-shrink-0" />
+              <span className="text-muted-foreground">
+                Led <strong>AI-driven product design</strong> at Intelligent Medical Objects.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <div className="mt-1 h-2 w-2 rounded-full bg-primary/70 flex-shrink-0" />
+              <span className="text-muted-foreground">
+                Built <strong>enterprise design systems</strong> adopted across teams (1,000+ users).
+              </span>
+            </li>
+          </ul>
+
           <p className="text-muted-foreground leading-relaxed">
-            I focus on making intricate workflows feel effortless—translating complex, high-stakes problems 
-            into clear, usable solutions that help people work smarter and faster.
+            My edge: translating intricate workflows into <strong>clear, efficient</strong> experiences people trust.
           </p>
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center gap-2">
+      {/* Link + password, stays inline but wraps nicely on tiny screens */}
+      <div className="flex items-center gap-2 flex-wrap">
         <a
           href="https://bryanengle.me"
           target="_blank"
@@ -545,39 +564,33 @@ const fadeUp = {
       </p>
     </motion.div>
 
-    <motion.div 
-      {...fadeUp} 
+    {/* RIGHT: Results as stat tiles */}
+    <motion.div
+      {...fadeUp}
       transition={{ ...fadeUp.transition, delay: 0.1 }}
       className="md:col-span-2"
     >
       <GlassCard className="p-8 h-full">
         <h4 className="text-xl font-semibold mb-6">Proven Results</h4>
-        <ul className="space-y-5">
-          <li className="flex items-start gap-3">
-            <div className="rounded-full bg-primary/20 p-1.5 mt-0.5 ring-1 ring-primary/30 flex-shrink-0">
-              <CheckCircle2 className="h-4 w-4 text-primary" />
-            </div>
-            <span className="text-muted-foreground">43% usability improvement (enterprise risk tools)</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <div className="rounded-full bg-primary/20 p-1.5 mt-0.5 ring-1 ring-primary/30 flex-shrink-0">
-              <CheckCircle2 className="h-4 w-4 text-primary" />
-            </div>
-            <span className="text-muted-foreground">40% task time reduction (ops dashboards)</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <div className="rounded-full bg-primary/20 p-1.5 mt-0.5 ring-1 ring-primary/30 flex-shrink-0">
-              <CheckCircle2 className="h-4 w-4 text-primary" />
-            </div>
-            <span className="text-muted-foreground">Design systems serving 1,000+ users</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <div className="rounded-full bg-primary/20 p-1.5 mt-0.5 ring-1 ring-primary/30 flex-shrink-0">
-              <CheckCircle2 className="h-4 w-4 text-primary" />
-            </div>
-            <span className="text-muted-foreground">Led first AI product POC at B2B healthcare SaaS</span>
-          </li>
-        </ul>
+
+        <div className="grid grid-cols-2 gap-6">
+          <div>
+            <div className="text-3xl font-bold text-primary">43%</div>
+            <div className="text-sm text-muted-foreground">Usability lift in enterprise risk tools</div>
+          </div>
+          <div>
+            <div className="text-3xl font-bold text-primary">40%</div>
+            <div className="text-sm text-muted-foreground">Task time reduction in ops dashboards</div>
+          </div>
+          <div>
+            <div className="text-3xl font-bold text-primary">1,000+</div>
+            <div className="text-sm text-muted-foreground">Users on design systems</div>
+          </div>
+          <div>
+            <div className="text-3xl font-bold text-primary">AI POC</div>
+            <div className="text-sm text-muted-foreground">First product at B2B healthcare SaaS</div>
+          </div>
+        </div>
       </GlassCard>
     </motion.div>
   </div>
