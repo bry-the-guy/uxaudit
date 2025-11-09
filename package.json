@@ -2,12 +2,14 @@
   "name": "bryan-engle-landing",
   "version": "0.1.0",
   "private": true,
+  "engines": { "node": "18.x" }
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
+  
   "dependencies": {
     "@hugeicons/react": "^1.1.1",
     "class-variance-authority": "^0.7.1",
@@ -28,7 +30,7 @@
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.39.1",
-    "eslint-config-next": "^15.0.3",
+    "eslint-config-next": "^15.5.6",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
     "tailwindcss-animate": "^1.0.7",
