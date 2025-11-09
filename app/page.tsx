@@ -523,18 +523,21 @@ const fadeUp = {
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <a 
-                href="https://bryanengle.me" 
-                target="_blank" 
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-secondary-foreground hover:text-primary transition-colors"
-              >
-                View portfolio 
-                <ArrowRight className="h-4 w-4 text-primary" />
-              </a>
-              <span className="text-sm text-muted-foreground self-center">Password: beux2025</span>
-            </div>
+<div className="flex flex-col sm:flex-row sm:items-center sm:gap-3">
+  <a
+    href="https://bryanengle.me"
+    target="_blank"
+    rel="noreferrer"
+    className="inline-flex items-center text-primary font-medium hover:underline"
+  >
+    View portfolio
+    <ArrowRight className="ml-1 h-4 w-4" />
+  </a>
+  <span className="text-sm text-muted-foreground sm:ml-2">
+    Password: <span className="font-medium text-foreground">beux2025</span>
+  </span>
+</div>
+
             
             <p className="text-sm text-muted-foreground pt-2">
               Based in Amsterdam, serving European B2B SaaS scale-ups and enterprises across EMEA.
