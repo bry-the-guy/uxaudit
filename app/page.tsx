@@ -13,7 +13,6 @@ import { TextAnimate } from "@/components/ui/text-animate"
 import { ShineBorder } from "@/components/ui/shine-border"
 import { ShinyButton } from "@/components/ui/shiny-button"
 import Particles from "@/components/ui/particles"
-import { Button } from "@/components/ui/button"
 
 
 // Particles background
