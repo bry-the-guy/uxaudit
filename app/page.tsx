@@ -369,50 +369,49 @@ const fadeUp = {
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Main Package */}
           <motion.div {...fadeUp} className="flex">
-            <GlassCard shine className="p-8 relative border-primary/30 flex flex-col w-full">
-              <div className="absolute top-4 right-4">
-{/* Mobile badge (left-justified above headline) */}
-<span className="sm:hidden inline-flex items-center gap-1 rounded-full bg-yellow-400/10 px-2.5 py-0.5 text-[10px] font-medium text-yellow-300 ring-1 ring-yellow-400/20 shadow-[0_0_8px_rgba(255,195,0,0.15)] self-start mb-3">
-  <Sparkles className="h-3 w-3 text-yellow-300" />
-  Most Popular
-</span>
+  <GlassCard shine className="p-8 relative border-primary/30 flex flex-col w-full">
+    {/* Mobile badge (left-justified above headline) */}
+    <span className="sm:hidden inline-flex items-center gap-1 rounded-full bg-yellow-400/10 px-2.5 py-0.5 text-[10px] font-medium text-yellow-300 ring-1 ring-yellow-400/20 shadow-[0_0_8px_rgba(255,195,0,0.15)] self-start mb-3">
+      <Sparkles className="h-3 w-3 text-yellow-300" />
+      Most Popular
+    </span>
 
-{/* Desktop badge (top-right, unchanged) */}
-<div className="hidden sm:block absolute top-4 right-4">
-  <span className="inline-flex items-center gap-1 rounded-full bg-yellow-400/10 px-2.5 py-0.5 text-[10px] font-medium text-yellow-300 ring-1 ring-yellow-400/20 shadow-[0_0_8px_rgba(255,195,0,0.15)]">
-    <Sparkles className="h-3 w-3 text-yellow-300" />
-    Most Popular
-  </span>
-</div>
-              
-              <h3 className="text-2xl font-bold mb-2">72-Hour Expert Review</h3>
-              <div className="mb-6">
-                <span className="text-5xl font-bold text-primary">€3,200</span>
-                <span className="text-muted-foreground ml-2">one-time</span>
-              </div>
+    {/* Desktop badge (top-right, unchanged) */}
+    <div className="hidden sm:block absolute top-4 right-4">
+      <span className="inline-flex items-center gap-1 rounded-full bg-yellow-400/10 px-2.5 py-0.5 text-[10px] font-medium text-yellow-300 ring-1 ring-yellow-400/20 shadow-[0_0_8px_rgba(255,195,0,0.15)]">
+        <Sparkles className="h-3 w-3 text-yellow-300" />
+        Most Popular
+      </span>
+    </div>
 
-              <ul className="space-y-3 mb-8 flex-grow">
-                <PricingItem text="Everything you need to fix enterprise adoption" />
-                <PricingItem text="90-min strategic kickoff call" />
-                <PricingItem text="5-7 critical workflow audits" />
-                <PricingItem text="20-25 Figma-annotated issues" />
-                <PricingItem text="1-hour executive readout" />
-                <PricingItem text="Implementation CSV + A/B test plans" />
-                <PricingItem text="2 follow-up Q&A via email" />
-              </ul>
+    <h3 className="text-2xl font-bold mb-2">72-Hour Expert Review</h3>
+    <div className="mb-6">
+      <span className="text-5xl font-bold text-primary">€3,200</span>
+      <span className="text-muted-foreground ml-2">one-time</span>
+    </div>
 
-              <div className="relative mt-auto">
-                <div className="absolute inset-0 blur-xl bg-primary/30 rounded-full animate-pulse" />
-                <ShinyButton
-                  onClick={() => window.open('https://buy.stripe.com/cNibJ3a1jcYzbqtbd7gbm01', '_blank')}
-                  className="w-full relative py-3 px-6 text-base font-bold shadow-lg shadow-primary/20 bg-primary text-black border-primary/50"
-                >
-                  Buy now - €3,200
-                  <ArrowRight className="h-4 w-4 ml-2 text-black" />
-                </ShinyButton>
-              </div>
-            </GlassCard>
-          </motion.div>
+    <ul className="space-y-3 mb-8 flex-grow">
+      <PricingItem text="Everything you need to fix enterprise adoption" />
+      <PricingItem text="90-min strategic kickoff call" />
+      <PricingItem text="5-7 critical workflow audits" />
+      <PricingItem text="20-25 Figma-annotated issues" />
+      <PricingItem text="1-hour executive readout" />
+      <PricingItem text="Implementation CSV + A/B test plans" />
+      <PricingItem text="2 follow-up Q&A via email" />
+    </ul>
+
+    <div className="relative mt-auto">
+      <div className="absolute inset-0 blur-xl bg-primary/30 rounded-full animate-pulse" />
+      <ShinyButton
+        onClick={() => window.open('https://buy.stripe.com/cNibJ3a1jcYzbqtbd7gbm01', '_blank')}
+        className="w-full relative py-3 px-6 text-base font-bold shadow-lg shadow-primary/20 bg-primary text-black border-primary/50"
+      >
+        Buy now - €3,200
+        <ArrowRight className="h-4 w-4 ml-2 text-black" />
+      </ShinyButton>
+    </div>
+  </GlassCard>
+</motion.div>
 
           {/* Implementation Sprint */}
           <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} className="flex">
