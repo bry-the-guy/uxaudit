@@ -155,38 +155,32 @@ const fadeUp = {
             </span>
             —because AI accelerates research while human expertise drives every decision.
           </motion.p>
+{/* CTA group — full width on mobile, natural size on desktop */}
 <motion.div
   {...fadeUp}
-  transition={{ ...fadeUp.transition, delay: 0.3 }}
-  className="flex w-full max-w-xl flex-col sm:flex-row items-center gap-4 mt-4"
+  transition={{ ...fadeUp.transition, delay: 0.15 }}
+  className="flex w-full max-w-2xl flex-col gap-4 sm:flex-row sm:justify-center"
 >
-  <div className="relative w-full sm:w-auto">
-    <div className="absolute inset-0 blur-xl bg-primary/30 rounded-full animate-pulse" />
-    <ShinyButton
-      onClick={() =>
-        window.open(
-          "https://calendly.com/bryan-r-engle/15-minute-discovery-call-b2b-ux-audit",
-          "_blank"
-        )
-      }
-      className="w-full sm:w-auto justify-center relative px-6 py-3 text-base font-bold shadow-lg shadow-primary/20 bg-primary text-black border-primary/50"
-    >
-      <Zap className="h-4 w-4 mr-2 text-black" />
+  <Link href="#book" className="w-full sm:w-auto">
+    <ShinyButton className="h-12 w-full sm:w-auto px-6 justify-center whitespace-nowrap">
       Book 15-min discovery call
-      <ArrowRight className="h-4 w-4 ml-2 text-black" />
+      <ArrowRight className="ml-2 h-4 w-4" />
     </ShinyButton>
-  </div>
+  </Link>
 
-  <a
-    href="https://buy.stripe.com/cNibJ3a1jcYzbqtbd7gbm01"
-    target="_blank"
-    rel="noreferrer"
-    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-xl px-8 py-4 text-base font-medium hover:bg-primary/10 hover:border-primary/40 transition-colors"
-  >
-    Buy now - €3,200
-    <ArrowRight className="h-5 w-5 text-primary" />
-  </a>
+  <Link href="#pricing" className="w-full sm:w-auto">
+    <button
+      className="h-12 w-full sm:w-auto px-6 inline-flex items-center justify-center whitespace-nowrap
+                 rounded-2xl border border-yellow-400/40 bg-white/5 text-base font-semibold text-white
+                 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] ring-1 ring-black/10 backdrop-blur
+                 transition hover:bg-white/7.5"
+    >
+      Buy now – €3,200
+      <ArrowRight className="ml-2 h-4 w-4" />
+    </button>
+  </Link>
 </motion.div>
+
 
 
           {/* Hero stats */}
