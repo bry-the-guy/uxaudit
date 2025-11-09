@@ -1,14 +1,8 @@
-# Valid TOML (no braces). Lets Next’s official plugin handle routing/assets.
-
 [build]
   command = "npm run build"
 
 [build.environment]
   NODE_VERSION = "18"
-  # Optional: temporarily silence ESLint in CI while stabilizing
-  # NEXT_DISABLE_ESLINT = "true"
-  # Optional: more verbose logs
-  # NETLIFY_BUILD_DEBUG = "true"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
