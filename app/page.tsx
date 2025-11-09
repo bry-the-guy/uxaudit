@@ -180,10 +180,10 @@ const fadeUp = {
   
     href="https://buy.stripe.com/cNibJ3a1jcYzbqtbd7gbm01"
     target="_blank"
-    rel="noreferrer"
+    rel="noopener noreferrer"
     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-xl px-8 py-4 md:py-2.5 text-base font-medium hover:bg-primary/10 hover:border-primary/40 transition-colors"
   >
-    Buy now - €3,200
+    Buy now - &euro;3,200
     <ArrowRight className="h-5 w-5 text-primary" />
   </a>
 </motion.div>
