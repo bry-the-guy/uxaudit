@@ -1,26 +1,164 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+
+
+/* Navy & Yellow color scheme */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* LIGHT */
+  --background: 0 0% 100%;
+  --foreground: 222 24% 10%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 24% 12%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 24% 12%;
+
+  /* Navy & Yellow palette */
+  --primary: 45 100% 50%;              /* Bright yellow #FFC300 */
+  --primary-foreground: 210 100% 3%;   /* Dark navy for contrast */
+
+  --secondary: 208 100% 21%;           /* Medium blue #003566 */
+  --secondary-foreground: 0 0% 100%;
+
+  --accent: 46 100% 52%;               /* Light yellow #FFD60A */
+  --accent-foreground: 210 100% 3%;
+
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 8% 40%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 220 13% 89%;
+  --input: 220 13% 89%;
+  --ring: 45 100% 50%;
+
+  --radius: 1rem;
+    --font-heading: "Momo Trust Display", ui-sans-serif, system-ui, -apple-system,
+                  Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+                  "Segoe UI Emoji";
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Optional: tighten leading on big headings */
+h1 { line-height: 1.05; }
+h2 { line-height: 1.1; }
+
+
+
+
+/* DARK MODE - Navy & Yellow */
+.dark {
+  --background: 210 100% 3%;           /* Very dark navy #000814 */
+  --foreground: 0 0% 98%;
+
+  --card: 208 100% 12%;                /* Dark blue card #001D3D */
+  --card-foreground: 0 0% 98%;
+
+  --popover: 208 100% 12%;
+  --popover-foreground: 0 0% 98%;
+
+  /* Navy & Yellow palette */
+  --primary: 45 100% 50%;              /* Bright yellow #FFC300 */
+  --primary-foreground: 210 100% 3%;   /* Dark navy text */
+
+  --secondary: 208 100% 21%;           /* Medium blue #003566 */
+  --secondary-foreground: 0 0% 100%;
+
+  --accent: 46 100% 52%;               /* Light yellow #FFD60A */
+  --accent-foreground: 210 100% 3%;
+
+  --muted: 208 100% 15%;
+  --muted-foreground: 210 15% 65%;
+
+  --destructive: 0 62.8% 50.6%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 208 50% 18%;
+  --input: 208 50% 18%;
+  --ring: 45 100% 50%;
+}
+
+@layer base {
+  * { @apply border-border; }
+  html, body { height: 100%; }
+  body { @apply bg-background text-foreground antialiased; }
+}
+
+@layer components {
+  .tile { @apply rounded-2xl bg-card ring-1 ring-border/60; }
+  .tile-p { @apply p-6 md:p-8; }
+  .kicker { @apply text-xs uppercase tracking-widest text-muted-foreground; }
+  .h1 { @apply text-3xl md:text-5xl font-semibold; font-family: 'Momo Trust Display', sans-serif; }
+  .h2 { @apply text-xl md:text-2xl font-semibold; font-family: 'Momo Trust Display', sans-serif; }
+  .lead { @apply text-base md:text-lg text-muted-foreground; }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium;
+  }
+  .btn-primary { @apply bg-primary text-primary-foreground hover:opacity-95; }
+  .btn-ghost   { @apply bg-muted text-foreground hover:bg-accent; }
+  .chip { @apply rounded-full bg-accent/10 px-3 py-1 text-xs text-accent ring-1 ring-accent/20; }
+  
+  /* Add Momo Trust Display to all headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Momo Trust Display', sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom glow effects */
+@layer utilities {
+  .glow-yellow {
+    box-shadow: 0 0 30px rgba(255, 195, 0, 0.4), 0 0 60px rgba(255, 195, 0, 0.2);
+  }
+  .glow-blue {
+    box-shadow: 0 0 30px rgba(0, 53, 102, 0.4), 0 0 60px rgba(0, 53, 102, 0.2);
+  }
+  .glow-light-yellow {
+    box-shadow: 0 0 30px rgba(255, 214, 10, 0.4), 0 0 60px rgba(255, 214, 10, 0.2);
+  }
+  
+  .dot-grid-pattern {
+    background-image: radial-gradient(circle, rgba(255, 195, 0, 0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  /* --- Normalize logo tones in scrolling marquees --- */
+.marquee-logo {
+  filter: grayscale(1) brightness(1.55) contrast(0.9);
+  opacity: 0.75;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.marquee-logo:hover {
+  filter: none;
+  opacity: 1;
+}
+
+
+  /* Seamless marquee helpers */
+.marquee-viewport { overflow: hidden; }
+.marquee-track { width: max-content; will-change: transform; } /* critical */
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  
+  .pause-marquee {
+    animation-play-state: paused;
+  }
+  
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }
