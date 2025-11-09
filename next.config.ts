@@ -2,19 +2,13 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-
-  // ✅ Skip ESLint errors during production builds (both local + Netlify)
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true, // don’t block builds on lint
   },
-
-  // ✅ Optional: enable future-proof Next.js optimizations
+  // removed experimental.optimizeCss to avoid critters requirement
   experimental: {
-    optimizeCss: true,
     scrollRestoration: true,
   },
-
-  // ✅ Optional: ensure static assets (SVGs, etc.) can be imported
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
