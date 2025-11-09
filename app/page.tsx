@@ -168,7 +168,7 @@ const fadeUp = {
                 onClick={() => window.open('https://calendly.com/bryan-r-engle/15-minute-discovery-call-b2b-ux-audit', '_blank')}
                 className="relative px-6 py-3 text-base font-bold shadow-lg shadow-primary/20 bg-primary text-black border-primary/50"
               >
-                <Zap className="h-4 w-4 mr-2 text-black" />
+                <Zap className="h-4 w-6 mr-2 text-black" />
                 Book 15-min discovery call
                 <ArrowRight className="h-4 w-4 ml-2 text-black" />
               </ShinyButton>
