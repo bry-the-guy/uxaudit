@@ -155,30 +155,36 @@ const fadeUp = {
             </span>
             —because AI accelerates research while human expertise drives every decision.
           </motion.p>
-{/* CTA group — full width on mobile, natural size on desktop */}
+{/* CTA group — full width on mobile, natural size on desktop (no Link) */}
 <motion.div
   {...fadeUp}
   transition={{ ...fadeUp.transition, delay: 0.15 }}
   className="flex w-full max-w-2xl flex-col gap-4 sm:flex-row sm:justify-center"
 >
-  <Link href="#book" className="w-full sm:w-auto">
-    <ShinyButton className="h-12 w-full sm:w-auto px-6 justify-center whitespace-nowrap">
-      Book 15-min discovery call
-      <ArrowRight className="ml-2 h-4 w-4" />
-    </ShinyButton>
-  </Link>
+  {/* Primary (ShinyButton) */}
+  <ShinyButton
+    className="h-12 w-full sm:w-auto px-6 justify-center whitespace-nowrap"
+    onClick={() =>
+      document.getElementById("book")?.scrollIntoView({ behavior: "smooth" })
+    }
+  >
+    Book 15-min discovery call
+    <ArrowRight className="ml-2 h-4 w-4" />
+  </ShinyButton>
 
-  <Link href="#pricing" className="w-full sm:w-auto">
-    <button
-      className="h-12 w-full sm:w-auto px-6 inline-flex items-center justify-center whitespace-nowrap
-                 rounded-2xl border border-yellow-400/40 bg-white/5 text-base font-semibold text-white
-                 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] ring-1 ring-black/10 backdrop-blur
-                 transition hover:bg-white/7.5"
-    >
-      Buy now – €3,200
-      <ArrowRight className="ml-2 h-4 w-4" />
-    </button>
-  </Link>
+  {/* Secondary (outline) */}
+  <button
+    className="h-12 w-full sm:w-auto px-6 inline-flex items-center justify-center whitespace-nowrap
+               rounded-2xl border border-yellow-400/40 bg-white/5 text-base font-semibold text-white
+               shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] ring-1 ring-black/10 backdrop-blur
+               transition hover:bg-white/7.5"
+    onClick={() =>
+      document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })
+    }
+  >
+    Buy now – €3,200
+    <ArrowRight className="ml-2 h-4 w-4" />
+  </button>
 </motion.div>
 
 
