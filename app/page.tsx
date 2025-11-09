@@ -370,11 +370,13 @@ const fadeUp = {
           {/* Main Package */}
           <motion.div {...fadeUp} className="flex">
             <GlassCard shine className="p-8 relative border-primary/30 flex flex-col w-full">
-              <div className="absolute top-4 right-4">
-<span className="inline-flex items-center gap-1 rounded-full bg-yellow-400/10 px-2.5 py-0.5 text-[10px] font-medium text-yellow-300 ring-1 ring-yellow-400/20 shadow-[0_0_8px_rgba(255,195,0,0.15)]">
-  <Sparkles className="h-3 w-3 text-yellow-300" />
-  Most Popular
-</span>
+<div className="absolute sm:static top-4 right-4 mb-3 sm:mb-0 flex sm:block justify-start">
+  <span className="inline-flex items-center gap-1 rounded-full bg-yellow-400/10 px-2.5 py-0.5 text-[10px] font-medium text-yellow-300 ring-1 ring-yellow-400/20 shadow-[0_0_8px_rgba(255,195,0,0.15)]">
+    <Sparkles className="h-3 w-3 text-yellow-300" />
+    Most Popular
+  </span>
+</div>
+
               </div>
               
               <h3 className="text-2xl font-bold mb-2">72-Hour Expert Review</h3>
