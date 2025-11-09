@@ -13,7 +13,6 @@ import { TextAnimate } from "@/components/ui/text-animate"
 import { ShineBorder } from "@/components/ui/shine-border"
 import { ShinyButton } from "@/components/ui/shiny-button"
 import Particles from "@/components/ui/particles"
-import { Button } from "@/components/ui/button"
 
 
 // Particles background
@@ -99,15 +98,15 @@ function SectionContainer(props: React.PropsWithChildren<{ id?: string; classNam
 export default function Page() {
   const prefersReducedMotion = useReducedMotion()
 
-  const fadeUp = useMemo(
-    () => ({
-      initial: { opacity: 0, y: prefersReducedMotion ? 0 : 20 },
-      whileInView: { opacity: 1, y: 0 },
-      viewport: { once: true, amount: 0.3 },
-      transition: { duration: prefersReducedMotion ? 0 : 0.6, ease: "easeOut" },
-    }),
-    [prefersReducedMotion]
-  )
+const fadeUp = {
+  initial: { opacity: 0, y: 12 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.6 },
+  transition: {
+    duration: 0.6,
+    ease: [0.16, 1, 0.3, 1] as [number, number, number, number], // ≈ easeOut
+  },
+} as const;
 
   useEffect(() => {
     document.documentElement.style.setProperty("scrollBehavior", "smooth")
