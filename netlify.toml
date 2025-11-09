@@ -1,5 +1,6 @@
 [build]
   command = "npm run build"
+  publish = ".next"  # must NOT be the repo root
 
 [build.environment]
   NODE_VERSION = "18"
