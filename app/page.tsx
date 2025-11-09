@@ -697,17 +697,17 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <GlassCard className="p-6">
-      <button 
-        onClick={() => setIsOpen(!isOpen)} 
-        className="flex w-full items-start justify-between gap-4 text-left"
-      >
-        <h3 className="font-semibold text-foreground">{question}</h3>
-        <ChevronDown 
-          className={`h-5 w-5 flex-shrink-0 text-primary transition-transform ${
-            isOpen ? 'rotate-180' : ''
-          }`} 
-        />
-      </button>
+<button
+  onClick={() => setIsOpen(!isOpen)}
+  className="flex w-full items-center justify-between gap-4 text-left"
+>
+  <h3 className="font-semibold text-foreground">{question}</h3>
+  <ChevronDown
+    className={`h-5 w-5 flex-shrink-0 text-primary transition-transform my-auto ${
+      isOpen ? "rotate-180" : ""
+    }`}
+/>
+</button>
       {isOpen && (
         <motion.div
           initial={{ height: 0, opacity: 0 }}
