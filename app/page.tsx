@@ -160,7 +160,7 @@ const fadeUp = {
 <motion.div
   {...fadeUp}
   transition={{ ...fadeUp.transition, delay: 0.3 }}
-  className="flex w-full max-w-4xl flex-col md:flex-row items-center gap-4 mt-4"
+  className="flex w-full max-w-4xl mx-auto flex-col md:flex-row items-center justify-center gap-4 mt-4"
 >
   <div className="relative w-full md:w-auto">
     <div className="absolute inset-0 blur-xl bg-primary/30 rounded-full animate-pulse" />
