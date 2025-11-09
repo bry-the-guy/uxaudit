@@ -511,14 +511,17 @@ const fadeUp = {
               
               <div className="space-y-4 flex-1">
                 <p className="text-muted-foreground text-lg leading-relaxed">
-I’m a Senior UX Designer with over eight years of experience turning complex systems into simple, intuitive tools.
-At United Airlines, I spent more than three years designing for both sides of the operation—consumer experiences used by millions of travelers and internal platforms that help thousands of employees in Tech Ops and Corporate Safety work more efficiently and safely. I’ve also led AI-driven product design at Intelligent Medical Objects and built design systems that scaled across enterprise teams.
+I’m a Senior UX Designer who turns complex systems into simple, usable experiences.
+
+At United Airlines, I spent over three years designing both sides of the operation — sleek consumer products used by millions of travelers and internal tools that help thousands of employees in Tech Ops and Corporate Safety work smarter and safer.
+
+I’ve also led AI-driven product design at Intelligent Medical Objects and built enterprise design systems that scale across teams.
 
 
                 </p>
                 
                 <p className="text-muted-foreground leading-relaxed">
-My strength lies in translating intricate workflows and technical constraints into clear, usable experiences that make sense to the people who rely on them every day.
+I specialize in making intricate workflows feel effortless — turning messy, high-stakes problems into clear, intuitive solutions that people actually enjoy using.
                 </p>
               </div>
             </div>
