@@ -513,14 +513,14 @@ const fadeUp = {
         {/* Copy — tighter + more scannable */}
         <div className="space-y-4 flex-1 max-w-prose">
           <p className="text-muted-foreground text-lg leading-relaxed">
-            I’m a <strong>Senior UX Designer</strong> who turns complex systems into simple, intuitive tools.
+            I’m a <strong>Senior UX Designer</strong> with over 8 years of experience, who turns complex systems into simple, intuitive tools.
           </p>
 
           <ul className="space-y-3">
             <li className="flex gap-3">
               <div className="mt-1 h-2 w-2 rounded-full bg-primary/70 flex-shrink-0" />
               <span className="text-muted-foreground">
-                <strong>United Airlines (3+ years):</strong> designed both traveler-facing products and internal platforms used by thousands in Tech Ops and Corporate Safety.
+                <strong>United Airlines:</strong> designed both traveler-facing products and internal platforms used by thousands in Tech Ops and Corporate Safety.
               </span>
             </li>
             <li className="flex gap-3">
@@ -560,7 +560,7 @@ const fadeUp = {
       </div>
 
       <p className="text-sm text-muted-foreground pt-2">
-        Based in Amsterdam, serving European B2B SaaS scale-ups and enterprises across EMEA.
+        Serving European B2B SaaS scale-ups and enterprises across EMEA.
       </p>
     </motion.div>
 
